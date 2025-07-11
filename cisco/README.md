@@ -1,7 +1,7 @@
 How to run script...
 - show comands before
 ```
-$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "admin" "Admin_1234!" "show ip interface brief" "show ip route"
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "show ip interface brief" "show ip route"
 
 Command: show ip interface brief
 
@@ -73,7 +73,7 @@ IP Route Table for VRF "default"
 ```
 - configuration commands
 ```
-$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "admin" "Admin_1234!" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
 
 Command: config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface
 
@@ -92,7 +92,7 @@ interface loopback64
 ```
 - show commands after
 ```
-$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "admin" "Admin_1234!" "show ip interface brief" "show ip route"
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "show ip interface brief" "show ip route"
 
 Command: show ip interface brief
 

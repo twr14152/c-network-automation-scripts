@@ -4,11 +4,7 @@
 
 
 int main(int argc, char * argv[]) {
-  
-  // If you dont want to save the username and password in the script
-  // Start the for loop with i = 4
-  // Enter username and password after hostname when starting script
-  
+ 
   for (int i = 4; i < argc; i++) {
 
     printf("\nCommand: %s\n", argv[i]);

@@ -1,47 +1,169 @@
 How to run script...
-- show comands
+- show comands before
+```
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "admin" "Admin_1234!" "show ip interface brief" "show ip route"
+
+Command: show ip interface brief
+
+IP Interface Status for VRF "default"(1)
+Interface            IP Address      Interface Status
+Lo0                  10.10.10.1      protocol-up/link-up/admin-up       
+Lo2                  2.2.2.2         protocol-up/link-up/admin-up       
+Lo3                  3.3.3.3         protocol-up/link-up/admin-up       
+Lo4                  4.4.4.4         protocol-up/link-up/admin-up       
+Lo8                  192.168.61.1    protocol-up/link-up/admin-up       
+Lo9                  192.168.62.1    protocol-up/link-up/admin-up       
+Lo10                 192.168.63.1    protocol-up/link-up/admin-up       
+Lo16                 192.168.16.5    protocol-up/link-up/admin-up       
+Lo17                 192.168.17.5    protocol-up/link-up/admin-up       
+Lo18                 192.168.18.5    protocol-up/link-up/admin-up       
+Lo99                 10.99.99.1      protocol-up/link-up/admin-up       
+
+Command: show ip route
+IP Route Table for VRF "default"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+2.2.2.0/24, ubest/mbest: 1/0, attached
+    *via 2.2.2.2, Lo2, [0/0], 2d03h, direct
+2.2.2.2/32, ubest/mbest: 1/0, attached
+    *via 2.2.2.2, Lo2, [0/0], 2d03h, local
+3.3.3.0/24, ubest/mbest: 1/0, attached
+    *via 3.3.3.3, Lo3, [0/0], 2d03h, direct
+3.3.3.3/32, ubest/mbest: 1/0, attached
+    *via 3.3.3.3, Lo3, [0/0], 2d03h, local
+4.4.4.0/24, ubest/mbest: 1/0, attached
+    *via 4.4.4.4, Lo4, [0/0], 2d03h, direct
+4.4.4.4/32, ubest/mbest: 1/0, attached
+    *via 4.4.4.4, Lo4, [0/0], 2d03h, local
+10.10.10.1/32, ubest/mbest: 2/0, attached
+    *via 10.10.10.1, Lo0, [0/0], 2d03h, local
+    *via 10.10.10.1, Lo0, [0/0], 2d03h, direct
+10.99.99.0/24, ubest/mbest: 1/0, attached
+    *via 10.99.99.1, Lo99, [0/0], 2d03h, direct
+10.99.99.1/32, ubest/mbest: 1/0, attached
+    *via 10.99.99.1, Lo99, [0/0], 2d03h, local
+192.168.16.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.16.5, Lo16, [0/0], 2d03h, direct
+192.168.16.5/32, ubest/mbest: 1/0, attached
+    *via 192.168.16.5, Lo16, [0/0], 2d03h, local
+192.168.17.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.17.5, Lo17, [0/0], 2d03h, direct
+192.168.17.5/32, ubest/mbest: 1/0, attached
+    *via 192.168.17.5, Lo17, [0/0], 2d03h, local
+192.168.18.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.18.5, Lo18, [0/0], 2d03h, direct
+192.168.18.5/32, ubest/mbest: 1/0, attached
+    *via 192.168.18.5, Lo18, [0/0], 2d03h, local
+192.168.61.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.61.1, Lo8, [0/0], 2d03h, direct
+192.168.61.1/32, ubest/mbest: 1/0, attached
+    *via 192.168.61.1, Lo8, [0/0], 2d03h, local
+192.168.62.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.62.1, Lo9, [0/0], 2d03h, direct
+192.168.62.1/32, ubest/mbest: 1/0, attached
+    *via 192.168.62.1, Lo9, [0/0], 2d03h, local
+192.168.63.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.63.1, Lo10, [0/0], 2d03h, direct
+192.168.63.1/32, ubest/mbest: 1/0, attached
+    *via 192.168.63.1, Lo10, [0/0], 2d03h, local
+
+```
 - configuration commands
 ```
-$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "show run | include loopback" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
-
-Command: show run | include loopback
-interface loopback0
-interface loopback1
-interface loopback2
-interface loopback3
-interface loopback4
-interface loopback8
-interface loopback9
-interface loopback10
-interface loopback16
-interface loopback17
-interface loopback18
-interface loopback30
-interface loopback66
-interface loopback68
-interface loopback75
-interface loopback80
-interface loopback99
-interface loopback101
-interface loopback123
-    update-source loopback0
-event manager applet loopback_down
-  event syslog pattern "interface loopback 75, changed state to administratively down"
-  action 3.0 cli command "interface loopback 75"
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "admin" "Admin_1234!" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
 
 Command: config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface
 
 Command: sh run interface loopback64
 
 !Command: show running-config interface loopback64
-!Running configuration last done at: Thu Jul 10 22:10:26 2025
-!Time: Thu Jul 10 22:10:29 2025
+!Running configuration last done at: Fri Jul 11 00:56:38 2025
+!Time: Fri Jul 11 00:56:41 2025
 
 version 10.3(3) Bios:version  
 
 interface loopback64
   description test_interface
   ip address 10.64.64.64/32
+
+```
+- show commands after
+```
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "admin" "Admin_1234!" "show ip interface brief" "show ip route"
+
+Command: show ip interface brief
+
+IP Interface Status for VRF "default"(1)
+Interface            IP Address      Interface Status
+Lo0                  10.10.10.1      protocol-up/link-up/admin-up       
+Lo2                  2.2.2.2         protocol-up/link-up/admin-up       
+Lo3                  3.3.3.3         protocol-up/link-up/admin-up       
+Lo4                  4.4.4.4         protocol-up/link-up/admin-up       
+Lo8                  192.168.61.1    protocol-up/link-up/admin-up       
+Lo9                  192.168.62.1    protocol-up/link-up/admin-up       
+Lo10                 192.168.63.1    protocol-up/link-up/admin-up       
+Lo16                 192.168.16.5    protocol-up/link-up/admin-up       
+Lo17                 192.168.17.5    protocol-up/link-up/admin-up       
+Lo18                 192.168.18.5    protocol-up/link-up/admin-up       
+Lo64                 10.64.64.64     protocol-up/link-up/admin-up       
+Lo99                 10.99.99.1      protocol-up/link-up/admin-up       
+
+Command: show ip route
+IP Route Table for VRF "default"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+2.2.2.0/24, ubest/mbest: 1/0, attached
+    *via 2.2.2.2, Lo2, [0/0], 2d03h, direct
+2.2.2.2/32, ubest/mbest: 1/0, attached
+    *via 2.2.2.2, Lo2, [0/0], 2d03h, local
+3.3.3.0/24, ubest/mbest: 1/0, attached
+    *via 3.3.3.3, Lo3, [0/0], 2d03h, direct
+3.3.3.3/32, ubest/mbest: 1/0, attached
+    *via 3.3.3.3, Lo3, [0/0], 2d03h, local
+4.4.4.0/24, ubest/mbest: 1/0, attached
+    *via 4.4.4.4, Lo4, [0/0], 2d03h, direct
+4.4.4.4/32, ubest/mbest: 1/0, attached
+    *via 4.4.4.4, Lo4, [0/0], 2d03h, local
+10.10.10.1/32, ubest/mbest: 2/0, attached
+    *via 10.10.10.1, Lo0, [0/0], 2d03h, local
+    *via 10.10.10.1, Lo0, [0/0], 2d03h, direct
+10.64.64.64/32, ubest/mbest: 2/0, attached
+    *via 10.64.64.64, Lo64, [0/0], 00:00:11, local
+    *via 10.64.64.64, Lo64, [0/0], 00:00:11, direct
+10.99.99.0/24, ubest/mbest: 1/0, attached
+    *via 10.99.99.1, Lo99, [0/0], 2d03h, direct
+10.99.99.1/32, ubest/mbest: 1/0, attached
+    *via 10.99.99.1, Lo99, [0/0], 2d03h, local
+192.168.16.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.16.5, Lo16, [0/0], 2d03h, direct
+192.168.16.5/32, ubest/mbest: 1/0, attached
+    *via 192.168.16.5, Lo16, [0/0], 2d03h, local
+192.168.17.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.17.5, Lo17, [0/0], 2d03h, direct
+192.168.17.5/32, ubest/mbest: 1/0, attached
+    *via 192.168.17.5, Lo17, [0/0], 2d03h, local
+192.168.18.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.18.5, Lo18, [0/0], 2d03h, direct
+192.168.18.5/32, ubest/mbest: 1/0, attached
+    *via 192.168.18.5, Lo18, [0/0], 2d03h, local
+192.168.61.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.61.1, Lo8, [0/0], 2d03h, direct
+192.168.61.1/32, ubest/mbest: 1/0, attached
+    *via 192.168.61.1, Lo8, [0/0], 2d03h, local
+192.168.62.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.62.1, Lo9, [0/0], 2d03h, direct
+192.168.62.1/32, ubest/mbest: 1/0, attached
+    *via 192.168.62.1, Lo9, [0/0], 2d03h, local
+192.168.63.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.63.1, Lo10, [0/0], 2d03h, direct
+192.168.63.1/32, ubest/mbest: 1/0, attached
+    *via 192.168.63.1, Lo10, [0/0], 2d03h, local
 
 
 

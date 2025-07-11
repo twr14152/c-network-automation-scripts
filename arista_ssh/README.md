@@ -1,7 +1,7 @@
-
+How to use scripts.
 
 - show commands
-'''
+```
 $ ./ssh_interactive_cli clab-lab3-ceos1 admin "run enable ; show ip int brief ; show version"
 
 You are running c version 201710
@@ -37,10 +37,10 @@ Uptime: 2 days, 17 hours and 18 minutes
 Total memory: 8187844 kB
 Free memory: 3204376 kB
 
-'''
+```
 
 
--- configuration commands
+- configuration commands
 ```
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./ssh_interactive_cli clab-lab3-ceos1 admin "run enable ; show run ; config ; interface loopback 1 ; ip address 1.1.1.1/32 ; description test_script_interface ; exit ; exit ;  show run"
 You are running c version 201710

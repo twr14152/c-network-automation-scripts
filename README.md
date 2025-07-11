@@ -9,4 +9,3 @@ Network Scripts written in C to configure and operate network devices
 - The test environment used for the arista script Containerlabs using ceos
 - The test environment used for cisco was devnet sandbox nxos always on
 - Now I understand the the usefulness of using a script in this fashion is more for a lab environment without and need for safeguards. My goal is to create more production ready format for these scripts. But you need to start somewhere. I also hope to grow beyond screen scraping but for now it is what it is.
-- 

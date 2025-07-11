@@ -26,7 +26,7 @@ int main(int argc, char * argv[]) {
 
     // Set SSH options
     ssh_options_set(session, SSH_OPTIONS_HOST, argv[1]);
-    ssh_options_set(session, SSH_OPTIONS_USER, argv[2]); // or argv[2]
+    ssh_options_set(session, SSH_OPTIONS_USER, argv[2]); // username 
 
     // Connect to SSH server
     rc = ssh_connect(session);
@@ -37,7 +37,7 @@ int main(int argc, char * argv[]) {
     }
 
     // Authenticate with password
-    rc = ssh_userauth_password(session, NULL, argv[3]); // or argv[3]
+    rc = ssh_userauth_password(session, NULL, argv[3]); // password
     if (rc != SSH_AUTH_SUCCESS) {
       fprintf(stderr, "Error authenticating with password: %s\n", ssh_get_error(session));
       ssh_disconnect(session);

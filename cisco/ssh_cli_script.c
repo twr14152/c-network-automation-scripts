@@ -4,7 +4,7 @@
 
 
 int main(int argc, char * argv[]) {
- 
+  // loop to run through commands
   for (int i = 4; i < argc; i++) {
 
     printf("\nCommand: %s\n", argv[i]);

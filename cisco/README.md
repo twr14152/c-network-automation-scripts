@@ -2,7 +2,7 @@ How to run script...
 - show comands
 - configuration commands
 ```
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "show run | include loopback" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
+$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "show run | include loopback" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
 
 Command: show run | include loopback
 interface loopback0
@@ -45,5 +45,5 @@ interface loopback64
 
 
 
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$
+$
 ```

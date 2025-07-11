@@ -2,8 +2,7 @@ How to use scripts.
 
 - show commands
 ```
-$ ./ssh_interactive_cli clab-lab3-ceos1 admin "run enable ; show ip int brief ; show version"
-
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./ssh_cli_script clab-lab3-ceos1 admin "run enable ; show ip int brief ; show version"
 You are running c version 201710
 Entering Authentication Phase...
 Enter password: admin
@@ -12,10 +11,11 @@ Command: run enable ; show ip int brief ; show version
 >enable
 #show ip int brief
                                                                         Address
-Interface       IP Address          Status      Protocol         MTU    Owner  
---------------- ------------------- ----------- ------------- --------- -------
-Ethernet1       10.0.1.1/24         up          up              1500           
-Management0     172.20.20.3/24      up          up              1500           
+Interface       IP Address         Status      Protocol          MTU    Owner  
+--------------- ------------------ ----------- ------------- ---------- -------
+Ethernet1       10.0.1.1/24        up          up               1500           
+Loopback1       1.1.1.1/32         up          up              65535           
+Management0     172.20.20.3/24     up          up               1500           
 
 #show version
 Arista cEOSLab
@@ -33,16 +33,19 @@ Image optimization: None
 
 Kernel version: 6.14.10-orbstack-00291-g1b252bd3edea
 
-Uptime: 2 days, 17 hours and 18 minutes
+Uptime: 2 days, 17 hours and 40 minutes
 Total memory: 8187844 kB
-Free memory: 3204376 kB
+Free memory: 3206532 kB
 
+
+
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ 
 ```
 
 
 - configuration commands
 ```
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./ssh_interactive_cli clab-lab3-ceos1 admin "run enable ; show run ; config ; interface loopback 1 ; ip address 1.1.1.1/32 ; description test_script_interface ; exit ; exit ;  show run"
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./ssh_cli_script clab-lab3-ceos1 admin "run enable ; show run ; config ; interface loopback 1 ; ip address 1.1.1.1/32 ; description test_script_interface ; exit ; exit ;  show run"
 You are running c version 201710
 Entering Authentication Phase...
 Enter password: admin

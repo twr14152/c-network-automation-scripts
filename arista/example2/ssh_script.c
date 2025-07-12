@@ -3,6 +3,7 @@
 #include <string.h>
 #include <libssh/libssh.h>
 
+// Boundaries for command files, could change based on need
 #define MAX_CMDS 8192
 #define MAX_LINE 1024
 

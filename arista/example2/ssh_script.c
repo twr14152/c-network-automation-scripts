@@ -3,7 +3,6 @@
 #include <string.h>
 #include <libssh/libssh.h>
 
-// Used for management commands file
 #define MAX_CMDS 8192
 #define MAX_LINE 1024
 
@@ -242,7 +241,7 @@ int main(int argc , char *argv[])
 	    ssh_free(session);
 	    exit(EXIT_FAILURE);
     }
-    // Open File to get commands....
+    // Open File to get commands
     char commands[MAX_CMDS];
     char line[MAX_LINE]; 
     FILE *fp = fopen(argv[3], "r");
@@ -260,7 +259,7 @@ int main(int argc , char *argv[])
     }
     fclose(fp);
 
-    printf("\nCommand: %s\n", commands);
+    printf("\nCommands from file: %s\n", commands);
     rc = ssh_channel_request_exec(channel, commands);
     if (rc != SSH_OK) {
         fprintf(stderr, "Error executing command: %s\n", ssh_get_error(session));

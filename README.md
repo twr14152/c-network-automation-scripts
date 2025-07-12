@@ -2,7 +2,7 @@ Network Scripts written in C to configure and operate network devices
 
 07/12/2025
 - In example2 working on adding the option to open command files to the ssh scripts. Its a positional argument so the name of the file will not need hard coded in the script.
-- Will work on as time permits
+- Working on it as time permits
 
 07/11/2025
 - I really enjoy working with C. I also enjoy writing code to help me configurate and operate network devices. Guess I'm kinda a tools guy. So I thought I would try and replicate in C what I've done in other languages. I know screen scraping is not truly sexy in the automation community but like it or not it is useful... Kinda the opposite of yang :).

@@ -20,3 +20,6 @@ exit
 
 $
 ```
+Now after reading through the existing code the commands syntax "cmd1 ; cmd2 ; cmd3".
+So we will have to tweak the openfile code remove carriage returns and newline (\r\n) and replace it with " ; "
+This will be iterative.

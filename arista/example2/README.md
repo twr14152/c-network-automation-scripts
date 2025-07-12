@@ -35,7 +35,7 @@ config t ; interface loopback 1 ;  ip address 1.1.1.1 255.255.255.255 ;  descrip
 ```
 Step 3.
 In corporate this code into the ssh code from example1 removing the cli syntax and using a file for the code or commands.
-- ssh_script.c - now has the open_file_and_read.c code encorporated just where we execute the command starts
+- ssh_script.c - now has the open_file_and_read.c code encorporated just where we execute the command starts at approx line ##
 - The idea is rather than use the actual cli commands from the command line you will call the file with those commands in position 3 of argv
 - This commands2.txt is just show commands
 ```

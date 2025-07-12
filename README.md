@@ -10,10 +10,11 @@ Network Scripts written in C to configure and operate network devices
 - I really enjoy working with C. I also enjoy writing scripts to automate network devices. My background is in networking so why not try and see if I can do it C what I have in python and Go. I know screen scraping is not sexy in the automation community but like it or not it is useful... Its like the opposite of yang or P4 :).
 - This reporsitory will hold scripts that I write for the purposes of knowledge retention and sharing.
 - So far I've created two scripts using libssh library. I pieced them together from the tutorial (https://api.libssh.org/stable/libssh_tutorial.html)
-- I am not going to lie it was challenging and took a few weeks if not months of trying and retrying to get working properly.
+- I am not going to lie it was challenging and took a few weeks if not months of trying, giving up, and then retrying to get working properly.
    * arista/example1/ssh_cli_script.c - This script that works by using keyboard_interactive authentication
    * cisco/example1/ssh_cli_script.c - This script works by using password authentication
-- The test environment used for the arista script Containerlabs using ceos
-- The test environment used for Cisco was devnet sandbox nxos always on
-- Now I understand the the usefulness of using a script in this fashion is more for a lab environment without and need for safeguards. My goal is to create more production ready format for these scripts. But you need to start somewhere. I also hope to grow beyond screen scraping but for now it is what it is.
+- The test envionments will probably change over time but for now 
+- I will use Containerlab for arista ceos and potentially other devices
+- Devnet sandbox for cisco - This first example used always on nxos.
+- Now I understand the the usefulness of using a script in this fashion is more for a lab environment without and need for safeguards. My goal is to create more production ready format for these scripts. But you need to start somewhere. I also hope to grow beyond screen scraping but for now, it is what it is.
 - Lastly why c? Why not? I like it...

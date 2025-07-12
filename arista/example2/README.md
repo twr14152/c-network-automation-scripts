@@ -4,6 +4,7 @@ Step 1.
 Just building functionality in to file open and read process
 - archive/open_file_and_read_1.c - original code moved to archive
 - commands.txt
+- The 0 0 are place holders we want the file to be located at position 3 or argv[3]
 ```
 $ ./openfile 0 0 commands.txt 
 

@@ -38,7 +38,7 @@ In corporate this code into the ssh code from example1 removing the cli syntax a
 - The idea is rather than use the actual cli commands from the command line you will call the file with those commands in position 3 of argv
 - This commands2.txt is just show commands
 ```
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ cat commands2.txt 
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ cat commands2.txt
 run enable
 show version
 show ip route
@@ -48,7 +48,7 @@ You are running c version 201710
 Entering Authentication Phase...
 Enter password: admin
 
-Command: run enable ; show version ; show ip route ; show lldp neighbor ; 
+Commands from file: run enable ; show version ; show ip route ; show lldp neighbor ; 
 >enable
 #show version
 Arista cEOSLab
@@ -66,9 +66,9 @@ Image optimization: None
 
 Kernel version: 6.14.10-orbstack-00291-g1b252bd3edea
 
-Uptime: 3 days, 19 hours and 19 minutes
+Uptime: 3 days, 19 hours and 34 minutes
 Total memory: 8187844 kB
-Free memory: 3174144 kB
+Free memory: 3158136 kB
 
 #show ip route
 
@@ -95,12 +95,13 @@ Gateway of last resort:
  S        0.0.0.0/0 [1/0]
            via 172.20.20.1, Management0
 
+ C        1.1.1.1/32
+           directly connected, Loopback1
  C        172.20.20.0/24
            directly connected, Management0
 
-! IP routing not enabled
 #show lldp neighbor
-Last table change time   : 11:14:32 ago
+Last table change time   : 11:30:02 ago
 Number of table inserts  : 4
 Number of table deletes  : 0
 Number of table drops    : 0
@@ -115,18 +116,35 @@ Ma0           ceos3                    Management0         120
 
 
 
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ 
 ```
 Now to test the configuration capabilities
 One thing with arista you need to include the "run enable" to script multiple commands. 
 So I added it to the top of commands.txt file.
 ```
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ cat commands.txt
+run enable
+config t
+
+interface loopback 1
+ ip address 1.1.1.1 255.255.255.255
+ description test_config
+
+ip routing
+
+router ospf 1
+ network 1.1.1.1 0.0.0.0 area 0
+exit
+exit
+
+show run
+
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./ssh_script clab-lab3-ceos2 admin commands.txt
 You are running c version 201710
 Entering Authentication Phase...
 Enter password: admin
 
-Command: run enable ; config t ; interface loopback 1 ;  ip address 1.1.1.1 255.255.255.255 ;  description test_config ; ip routing ; router ospf 1 ;  network 1.1.1.1 0.0.0.0 area 0 ; exit ; exit ; show run ; 
+Commands from file: run enable ; config t ; interface loopback 1 ;  ip address 1.1.1.1 255.255.255.255 ;  description test_config ; ip routing ; router ospf 1 ;  network 1.1.1.1 0.0.0.0 area 0 ; exit ; exit ; show run ; 
 >enable
 #config t
 (config)#interface loopback 1
@@ -201,5 +219,4 @@ router ospf 1
 !
 end
 
-
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ 
+```

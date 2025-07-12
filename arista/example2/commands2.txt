@@ -1,0 +1,4 @@
+run enable
+show version
+show ip route
+show lldp neighbor

@@ -7,9 +7,10 @@ Network Scripts written in C to configure and operate network devices
 - I have not started on the Cisco example2 yet.
 
 07/11/2025
-- I really enjoy working with C. I also enjoy writing code to help me configure and operate network devices. Guess I'm kinda a tools guy. So I thought I would try and replicate in C what I've done in other languages. I know screen scraping is not sexy in the automation community but like it or not it is useful... Kinda the opposite of yang :).
+- I really enjoy working with C. I also enjoy writing scripts to automate network devices. My background is in networking so why not try and see if I can do it C what I have in python and Go. I know screen scraping is not sexy in the automation community but like it or not it is useful... Its like the opposite of yang or P4 :).
 - This reporsitory will hold scripts that I write for the purposes of knowledge retention and sharing.
-- So far I've created two scripts using libssh library
+- So far I've created two scripts using libssh library. I pieced them together from the tutorial (https://api.libssh.org/stable/libssh_tutorial.html)
+- I am not going to lie it was challenging and took a few weeks if not months of trying and retrying to get working properly.
    * arista/example1/ssh_cli_script.c - This script that works by using keyboard_interactive authentication
    * cisco/example1/ssh_cli_script.c - This script works by using password authentication
 - The test environment used for the arista script Containerlabs using ceos

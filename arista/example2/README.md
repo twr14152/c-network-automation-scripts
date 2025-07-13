@@ -1,6 +1,6 @@
-07/12/2025
+#07/12/2025
 
-Step 1
+#Step 1
 Just building functionality in to file open and read process
 - archive/open_file_and_read_1.c - original code moved to archive
 - commands.txt

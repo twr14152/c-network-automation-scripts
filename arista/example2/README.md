@@ -122,7 +122,7 @@ Ma0           ceos3                    Management0         120
 
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ 
 ```
-Now to test the configuration capabilities
+Now to test the configuration capabilities.
 One thing with arista you need to include the "run enable" to script multiple commands. 
 So I added it to the top of commands.txt file.
 ```

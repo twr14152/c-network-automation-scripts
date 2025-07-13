@@ -1,4 +1,4 @@
-# How to use scripts.
+How to use scripts.
 
 - show commands
 ```

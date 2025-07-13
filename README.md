@@ -15,7 +15,7 @@ Network Scripts written in C to configure and operate network devices
    * arista/example1/ssh_cli_script.c - This script that works by using keyboard_interactive authentication
    * cisco/example1/ssh_cli_script.c - This script works by using password authentication
 - The test envionments will probably change over time but for now 
-- I will use Containerlab for arista ceos and potentially other devices
-- Devnet sandbox for cisco - This first example used always on nxos.
+   * I will use Containerlab for arista ceos and potentially other devices
+   * Devnet sandbox for cisco - This first example used always on nxos.
 - Now I understand the the usefulness of using a script in this fashion is more for a lab environment without and need for safeguards. My goal is to create more production ready format for these scripts. But you need to start somewhere. I also hope to grow beyond screen scraping but for now, it is what it is.
 - Lastly why c? Why not? I like it...

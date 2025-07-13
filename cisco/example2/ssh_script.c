@@ -3,9 +3,6 @@
 #include <string.h>
 #include <libssh/libssh.h>
 
-
-// Boundaries for command files, could change based on need
-
 #define MAX_LINE 1024
 
 int verbosity = SSH_LOG_PROTOCOL;

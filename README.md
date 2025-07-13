@@ -7,7 +7,7 @@ Network Scripts written in C to configure and operate network devices
 - I have not started on the Cisco example2 yet.
 
 07/11/2025
-- I really enjoy working with C. My background is in networking so why not try and see if I can make some use of it? I know screen scraping is not real sexy in the automation community but like it or not it is useful...
+- I really enjoy working with C. My background is in networking so why not try and see if I can make some use of it? I know screen scraping is not real sexy in the automation community but like it or not,  it's useful...
 - This repository will hold scripts that I write for the purposes of knowledge building, retention, and sharing.
 - So far I've created two scripts using libssh library. I pieced them together from the tutorial (https://api.libssh.org/stable/libssh_tutorial.html)
 - I am not going to lie it was challenging and took sometime and effort to get working properly. Lots of debugging.

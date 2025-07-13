@@ -11,6 +11,7 @@ Network Scripts written in C to configure and operate network devices
 - This repository will hold scripts that I write for the purposes of knowledge building, retention, and sharing.
 - So far I've created two scripts using libssh library. I pieced them together from the tutorial (https://api.libssh.org/stable/libssh_tutorial.html)
 - I am not going to lie it was challenging and took sometime and effort to get working properly. Lots of debugging.
+- These two scripts represent two very different forms of authentication using SSH. The Cisco device was more straight forward. 
    * arista/example1/ssh_cli_script.c - This script that works by using keyboard_interactive authentication
    * cisco/example1/ssh_cli_script.c - This script works by using password authentication
 - The test envionments will probably change over time but for now 

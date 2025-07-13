@@ -1,9 +1,9 @@
 Network Scripts written in C to configure and operate network devices
 
 07/12/2025
-- In example2 added the option to open a commands file to the ssh scripts. Its a positional argument. So the name of the file will not need hard coded in the script.
-- arista/example2/ssh_script.c - allows you to create a command file with configs or show commands then you just call the file when you run the ssh_script
-- I've include a readme file in that directory to explain
+- In example2 I added the option to have a seperate file which can hold your device configuration or show commands. Its just a text file. Call it what ever you want. Then call it when your run your script. Its based off of a positional argument. So the name of the file could be anything.
+- arista/example2/ssh_script.c
+- I've include a readme file in that directory to help explain
 - I have not started on the Cisco example2 yet.
 
 07/11/2025

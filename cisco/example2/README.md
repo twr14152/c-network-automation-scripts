@@ -1,7 +1,7 @@
 ### 07/13/2025
 - Added the ability to call a file that can hold configs or verification commands
 - You can call the file anything you want it just need to be in the 4 position in the cli arguments
-- This was a little tricky in that Cisco devices behave a little differently than other linux devices when it comes to terminating lines with ";"
+- This was a little tricky in that Cisco device behaved a little differently than other linux devices when it cames to terminating lines with ";" 
 - It wasn't working on the description lines. The commands that followed where entered as part of the interface description
 - I had to use interactive shell with the session in order for the configurations to work properly with the cisco device
 

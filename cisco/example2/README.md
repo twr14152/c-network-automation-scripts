@@ -1,3 +1,5 @@
+# Log
+
 ### 07/14/2025
 - Broke the scripts up into conf and show commands
   * ssh_conf.c - run config commands from file

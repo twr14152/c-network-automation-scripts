@@ -11,7 +11,7 @@
 - ~cisco/example2/ssh_script.c~ 
 - The cisco device did not honor end of line ";" that arista ceos did the result was anything beyond the interface description became part of the description.
 - I had to use interactive shell to get it to properly take the commands.
-- Techinically this maybe the more appropriate way of dealing with multiple nested commands.
+- Techinically this the more appropriate way of dealing with multiple nested commands in configuration mode.
 
 ### 07/12/2025
 - In example2 I added the option to have a seperate file which can hold your device configuration or show commands. Its just a text file. Call it what ever you want. Then call it when your run your script. Its based off of a positional argument. So the name of the file could be anything.

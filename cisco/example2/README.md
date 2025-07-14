@@ -1,11 +1,11 @@
 ### 07/13/2025
 - This script allows you to call a file which can hold configurations or show commands. 
 - The script doesn't care what you name the file only that its in the fouth position when you run the script (./script 0 0 0 file).
-- This was a little tricky in that Cisco device behaved a differently than arista when it cames to terminating lines with ";".
+- This was a little tricky in that Cisco device behaved a differently than arista when it cames to terminating lines with " ; ".
 - It wouldn't work with the description lines of an interface. The commands that followed where entered as part of the interface description.
 - I had to use interactive shell with the session in order for the configurations to work properly with the cisco device
 - This method maybe the go farward path as it actually involves less gynamtics with appending and formating the data to work with the devices.
-- I do believe ssh_channel_request_exec() was designed to send a command to a remote device. The " ; " was a way to send multiple commands on linux based systems. It worked for the arista but not for the cisco.  
+- I do believe ssh_channel_request_exec() was designed to send a command to a remote device. The " ; " was a way to send multiple commands on linux based systems. It worked for the arista but not for the cisco.
 ```
 
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat  commands2.txt 

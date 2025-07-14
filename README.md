@@ -3,7 +3,7 @@
 - Added option for configure file to the Cisco device we are testing
 - cisco/example2/ssh_script.c
 - The cisco device did not honor end of line ";" that arista ceos did the result was anything beyond the interface description became part of the description.
-- So I had to use an interactive shell to get it to properly take the commands.
+- So I had to use interactive shell to get it to properly take the commands.
 - Techinically this maybe the more appropriate way of dealing with multiple nested commands.
 
 ### 07/12/2025

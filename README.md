@@ -4,7 +4,6 @@
 - The logic seemed cleaner as interactive shell seem appropriate for config functions more than exec commands
   * cisco/example2/ssh_conf.c - configuration script
   * cisco/example2/ssh_exec_cmds.c - show commands script
-- 
 
 
 ### 07/13/2025

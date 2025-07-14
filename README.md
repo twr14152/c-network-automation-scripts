@@ -5,7 +5,6 @@
   * cisco/example2/ssh_conf.c - configuration script
   * cisco/example2/ssh_exec_cmds.c - show commands script
 
-
 ### 07/13/2025
 - Added option for configure file to the Cisco device we are testing
 - ~cisco/example2/ssh_script.c~ 
@@ -32,5 +31,6 @@
    * Devnet sandbox for cisco - This first example used always on nxos.
 - Now I understand the the usefulness of using a script in this fashion is more for a lab environment without and need for safeguards. My goal is to create more production ready format for these scripts. But you need to start somewhere. I also hope to grow beyond screen scraping but for now, it is what it is.
 - It would seem using the right tool for the right job may not have a place in this repo after all we are using c for network scripting. That said I may include some bash rather using c as an orchestrator to launch multiple instances of a script.
+- I will try an improve the scripts as I gain more understanding
 - This may not go very far, but wont know your limits until you try.
 - Lastly why c? Why not? I like it...

@@ -17,6 +17,7 @@
    * ssh_channel_write(channel, line, strlen(line)) <-- Loop through and enter commands using this line
 - Should I break the show commands into their own script as they do not require interactive shell to run only config appear to be impacted??
 
+config script
 ```
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat config.txt 
 config t
@@ -70,7 +71,9 @@ nxos(config-if)# exit
 nxos(config)# exit
 nxos# exit
 
-
+```
+show commands
+```
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat commands.txt 
 
 show ip interface brief

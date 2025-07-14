@@ -1,7 +1,15 @@
 # Network Scripts written in C to configure and operate network devices
+### 07/14/2025
+- I ended up breaking up the config and exec commands functions into seperate scripts
+- The logic seemed cleaner as interactive shell seem appropriate for config functions more than exec commands
+  * cisco/example2/ssh_conf.c - configuration script
+  * cisco/example2/ssh_exec_cmds.c - show commands script
+- 
+
+
 ### 07/13/2025
 - Added option for configure file to the Cisco device we are testing
-- cisco/example2/ssh_script.c
+- ~cisco/example2/ssh_script.c~ 
 - The cisco device did not honor end of line ";" that arista ceos did the result was anything beyond the interface description became part of the description.
 - I had to use interactive shell to get it to properly take the commands.
 - Techinically this maybe the more appropriate way of dealing with multiple nested commands.

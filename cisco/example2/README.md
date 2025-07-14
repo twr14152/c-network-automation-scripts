@@ -6,6 +6,11 @@
 - I had to use interactive shell with the session in order for the configurations to work properly with the cisco device
 - This method maybe the go farward path as it actually involves less gynamtics with appending and formating the data to work with the devices.
 - I do believe ssh_channel_request_exec() was designed to send a command to a remote device. The " ; " was a way to send multiple commands on linux based systems. It worked for the arista but not for the cisco.
+- The fix was to move away from ssh_channel_request_exec() and use
+   * ssh_channel_request_pty(channel)
+   * ssh_channel_request_shell(channel)
+   * ssh_channel_write(channel, line, strlen(line)) <-- Loop through and enter commands using this line
+
 ```
 
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat  commands2.txt 

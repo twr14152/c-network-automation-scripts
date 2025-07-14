@@ -1,3 +1,8 @@
+### 07/14/2025
+- Broke the scripts up into conf and show commands
+  * ssh_conf.c - run config commands from file
+  * ssh_exec_cmds.c - run show commands from file
+
 ### 07/13/2025
 - This script allows you to call a file which can hold configurations or show commands. 
 - The script doesn't care what you name the file only that its in the fouth position when you run the script (./script 0 0 0 file).
@@ -11,24 +16,16 @@
    * ssh_channel_request_shell(channel)
    * ssh_channel_write(channel, line, strlen(line)) <-- Loop through and enter commands using this line
 - Should I break the show commands into their own script as they do not require interactive shell to run only config appear to be impacted??
-- 
-```
 
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat  commands2.txt 
+```
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat config.txt 
 config t
 
 interface loopback 41
 ip address 41.41.41.41 255.255.255.255
 description testing_script
 
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat  commands.txt 
-
-
-show run interface loop41
-show interface loopback 41
-
-
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ ./ssh_script "sbx-nxos-mgmt.cisco.com" "username" "password" "commands2.txt"
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ ./ssh_conf "sbx-nxos-mgmt.cisco.com" "username" "password" "config.txt"
 
 config t
 interface loopback 41
@@ -74,45 +71,20 @@ nxos(config)# exit
 nxos# exit
 
 
-toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ ./ssh_script "sbx-nxos-mgmt.cisco.com" "username" "password" "commands.txt"
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ cat commands.txt 
 
+show ip interface brief
 show run interface loop41
 show interface loopback 41
-exit
-exit
-exit
-Cisco NX-OS Software
-Copyright (c) 2002-2023, Cisco Systems, Inc. All rights reserved.
-Nexus 9000v software ("Nexus 9000v Software") and related documentation,
-files or other reference materials ("Documentation") are
-the proprietary property and confidential information of Cisco
-Systems, Inc. ("Cisco") and are protected, without limitation,
-pursuant to United States and International copyright and trademark
-laws in the applicable jurisdiction which provide civil and criminal
-penalties for copying or distribution without Cisco's authorization.
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ ./ssh_exec_cmds "sbx-nxos-mgmt.cisco.com" "username" "password" "commands.txt"
 
-Any use or disclosure, in whole or in part, of the Nexus 9000v Software
-or Documentation to any third party for any purposes is expressly
-prohibited except as otherwise authorized by Cisco in writing.
-The copyrights to certain works contained herein are owned by other
-third parties and are used and distributed under license. Some parts
-of this software may be covered under the GNU Public License or the
-GNU Lesser General Public License. A copy of each such license is
-available at
-http://www.gnu.org/licenses/gpl.html and
-http://www.gnu.org/licenses/lgpl.html
-***************************************************************************
-*  Nexus 9000v is strictly limited to use for evaluation, demonstration   *
-*  and NX-OS education. Any use or disclosure, in whole or in part of     *
-*  the Nexus 9000v Software or Documentation to any third party for any   *
-*  purposes is expressly prohibited except as otherwise authorized by     *
-*  Cisco in writing.                                                      *
-***************************************************************************
-nxos# show run interface loop41
+IP Interface Status for VRF "default"(1)
+Interface            IP Address      Interface Status
+Lo41                 41.41.41.41     protocol-up/link-up/admin-up       
 
 !Command: show running-config interface loopback41
-!Running configuration last done at: Sun Jul 13 05:50:15 2025
-!Time: Sun Jul 13 05:50:24 2025
+!Running configuration last done at: Sun Jul 13 18:51:00 2025
+!Time: Sun Jul 13 18:51:24 2025
 
 version 10.3(3) Bios:version  
 
@@ -120,7 +92,6 @@ interface loopback41
   description testing_script
   ip address 41.41.41.41/32
 
-nxos# show interface loopback 41
 loopback41 is up
 admin state is up,
   Hardware: Loopback
@@ -137,7 +108,6 @@ admin state is up,
     0 output errors 0 collisions 0 fifo
     0 out_carrier_errors
 
-nxos# exit
 
 
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ 

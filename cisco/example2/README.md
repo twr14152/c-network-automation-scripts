@@ -2,6 +2,7 @@
 - Broke the scripts up into conf and show commands
   * ssh_conf.c - run config commands from file
   * ssh_exec_cmds.c - run show commands from file
+- This just seemed cleaner
 
 ### 07/13/2025
 - This script allows you to call a file which can hold configurations or show commands. 

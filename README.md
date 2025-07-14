@@ -1,9 +1,11 @@
 # Network Scripts written in C to configure and operate network devices
+
 ### 07/14/2025
 - I ended up breaking up the config and exec commands functions into seperate scripts
 - The logic seemed cleaner as interactive shell seem appropriate for config functions more than exec commands
   * cisco/example2/ssh_conf.c - configuration script
   * cisco/example2/ssh_exec_cmds.c - show commands script
+- Next task is to try and come up with a way to configure multiple devices
 
 ### 07/13/2025
 - Added option for configure file to the Cisco device we are testing

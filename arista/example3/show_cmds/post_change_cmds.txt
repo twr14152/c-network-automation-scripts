@@ -1,0 +1,11 @@
+run enable
+
+show ip int brief
+show ip ospf neighbor
+show ip ospf interface brief
+show lldp neighbors
+show ip route
+
+ping 1.1.1.1
+ping 2.2.2.2
+ping 3.3.3.3

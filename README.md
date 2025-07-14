@@ -6,7 +6,9 @@
   * cisco/example2/ssh_conf.c - configuration script
   * cisco/example2/ssh_exec_cmds.c - show commands script
 - Next task is to try and come up with a way to configure multiple devices
-- Ok so example3 is not updates c code. Remember right tool right job. I used bash for this part.
+- So example3 show's how you could deploy and validate changes to your network using this code.
+- I didn't write additional c code to perform this I actually used a little bash to act as the orchestrator for this change.
+- The README shows the examples and how they were rolled out and validated
   * arista/example3/pre_change_status.sh
   * arista/example3/push_conf_change.sh
   * arista/example3/post_change_status.sh

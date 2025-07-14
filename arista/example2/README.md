@@ -26,9 +26,9 @@ $
 ```
 ### Step 2 
 
-Now after reading through the existing code the commands syntax "cmd1 ; cmd2 ; cmd3".
+Now after reading through the existing code the commands syntax "cmd1 ; cmd2 ; cmd3" worked with the ssh_channel_request_exec() because linux understands " ; " to mean end of line.
 So we will have to tweak the openfile code remove carriage returns and newline (\r\n) and replace it with " ; "
-This will be iterative.
+This will be put the commands in to a string separated by " ; " which the device understand amd will execept.
 - open_file_and_read.c
 - commands.txt
 ```

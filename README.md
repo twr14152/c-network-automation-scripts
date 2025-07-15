@@ -12,6 +12,7 @@
   * arista/example3/pre_change_status.sh
   * arista/example3/push_conf_change.sh
   * arista/example3/post_change_status.sh
+  * arista/example3/rem_conf_change.sh
 
 ### 07/13/2025
 - Added option for configure file to the Cisco device we are testing

@@ -1,6 +1,11 @@
 ### Deploying some configs and validating that they worked
 - No point in trying to reinvent the wheel when it comes to using the code on multiple devices.
-- Using a simple bash script to push out the commands to various devices.
+- Using bash script to push out the commands to various devices.
+- Each script has a unique roll to play in rolling a change
+    * pre-change-validation
+    * eployment
+    * post-change-validation
+    * backout
 
 Pre-change validation
 ```

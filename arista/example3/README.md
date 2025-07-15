@@ -515,7 +515,7 @@ rtt min/avg/max/mdev = 0.001/0.008/0.036/0.013 ms, ipg/ewma 0.014/0.021 ms
 
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$
 ```
-Remove configs
+Backout - config removal
 ```
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista_ssh$ ./rem_conf_change.sh 
 You are running c version 201710

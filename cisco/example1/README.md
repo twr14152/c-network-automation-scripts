@@ -72,6 +72,10 @@ IP Route Table for VRF "default"
 
 ```
 - configuration commands
+- The confiuguration portion of the command has semicolon with a space on each side " ; "  to represent nested behavior of the command. The config portion should also be inside of double quotes.
+- Notice the show comands have no semicolon and are seperated by white space.
+- One caveat in the configuration portion of the command you must add the line description last. With Cisco nxos it does not see the " ; " as a line break, it sees it as additional text to add to the description.
+- This issue gets dealt with in example2.
 ```
 $ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_interface"  "sh run interface loopback64"
 
@@ -168,4 +172,38 @@ IP Route Table for VRF "default"
 
 
 $
+```
+- How to navigate syntax to configure multiple interfaces and run show commands
+
+```
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/cisco$ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_script2"  "config t ; interface loopback 65 ; description test_script_2" "sh run interface loopback64" "show run int loopback65"
+
+Command: config t ; interface loopback64 ; ip address 10.64.64.64 255.255.255.255 ; description test_script2
+
+Command: config t ; interface loopback 65 ; description test_script_2
+
+Command: sh run interface loopback64
+
+!Command: show running-config interface loopback64
+!Running configuration last done at: Tue Jul 15 17:25:00 2025
+!Time: Tue Jul 15 17:25:03 2025
+
+version 10.3(3) Bios:version  
+
+interface loopback64
+  description test_script2
+  ip address 10.64.64.64/32
+
+
+Command: show run int loopback65
+
+!Command: show running-config interface loopback65
+!Running configuration last done at: Tue Jul 15 17:25:00 2025
+!Time: Tue Jul 15 17:25:04 2025
+
+version 10.3(3) Bios:version  
+
+interface loopback65
+  description test_script_2
+
 ```

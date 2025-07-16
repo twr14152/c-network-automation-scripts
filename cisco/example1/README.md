@@ -1,5 +1,7 @@
 How to run script...
 - show comands before
+- The username and password have been intensionally changed as the vendor doesnt like when you post them.
+  
 ```
 $ ./ssh_cli_script "sbx-nxos-mgmt.cisco.com" "username" "password" "show ip interface brief" "show ip route"
 

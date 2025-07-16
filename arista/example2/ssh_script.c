@@ -7,8 +7,6 @@
 #define MAX_CMDS 8192
 #define MAX_LINE 1024
 
-
-// Forward declarations
 int authenticate_none(ssh_session session);
 int authenticate_pubkey(ssh_session session);
 int authenticate_kbdint(ssh_session session);

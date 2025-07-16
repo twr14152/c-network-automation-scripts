@@ -9,16 +9,15 @@
 ### 07/13/2025
 - This script allows you to call a file which can hold configurations or show commands. 
 - The script doesn't care what you name the file only that its in the fouth position when you run the script (./script 0 0 0 file).
-- This was a little tricky in that Cisco device behaved a differently than arista when it cames to terminating lines with " ; ".
-- It wouldn't work when configuring the description lines of an interface. The commands that followed the desciption became part of the description as it ignored " ; " and included it any everything else.
-- I had to use interactive shell with the session in order for nested configurations to work properly.
-- This method maybe the go farward path as it actually involves less gynamtics with appending and formating the data to work with the devices.
+- This was a little tricky in that Cisco device behaved a differently than arista when it cames to terminating lines with " ; " with interface descriptions.
+- It wouldnt terminate the line following the description using " ; ". The commands that followed became part of the description including the semicolon and everything that followed.
+- So I had to switch to interactive shell with the session in order for nested configurations to work properly.
+- This method maybe the go farward path as it actually involves less mental gynamtics with appending and formating the data to work with the devices.
 - I do believe ssh_channel_request_exec() was designed to send a command to a remote device. The " ; " was a way to send multiple commands on linux based systems. It worked fine for show commands and it works fine for both show and configs for the arista but not for the cisco.
 - The fix was to move away from ssh_channel_request_exec() and use
    * ssh_channel_request_pty(channel)
    * ssh_channel_request_shell(channel)
-   * ssh_channel_write(channel, line, strlen(line)) <-- Loop through and enter commands using this line
-- Should I break the show commands into their own script as they do not require interactive shell to run only config appear to be impacted??
+   * ssh_channel_write(channel, line, strlen(line)) 
 
 config script
 ```

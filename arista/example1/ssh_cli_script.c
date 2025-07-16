@@ -3,13 +3,10 @@
 #include <string.h>
 #include <libssh/libssh.h>
 
-
-// Forward declarations
 int authenticate_none(ssh_session session);
 int authenticate_pubkey(ssh_session session);
 int authenticate_kbdint(ssh_session session);
 int authenticate_password(ssh_session session);
-
 
 int verbosity = SSH_LOG_PROTOCOL;
 

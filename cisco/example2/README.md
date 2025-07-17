@@ -15,9 +15,10 @@
 - This method maybe the go farward path as it actually involves less mental gynamtics with appending and formating the data to work with the devices.
 - I do believe ssh_channel_request_exec() was designed to send a command to a remote device. The " ; " was a way to send multiple commands on linux based systems. It worked fine for show commands and it works fine for both show and configs for the arista but not for the cisco.
 - The fix was to move away from ssh_channel_request_exec() and use
-   * ssh_channel_request_pty(channel)
-   * ssh_channel_request_shell(channel)
+   * ssh_channel_request_pty(channel) - Provides visual feedback from the script
+   * ssh_channel_request_shell(channel) - Allows you to run multiple nested commands
    * ssh_channel_write(channel, line, strlen(line)) 
+- While technically you could run the script without the pty portion of the code you will not get any feedback. I didnt like that so I included it, but not necessary for it to work.
 
 config script
 ```

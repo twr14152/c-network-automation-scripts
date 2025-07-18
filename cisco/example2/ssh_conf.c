@@ -59,15 +59,24 @@ int main(int argc, char * argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  if (ssh_channel_request_pty(channel) != SSH_OK || ssh_channel_request_shell(channel) != SSH_OK) {
-    fprintf(stderr, "Error requesting shell/pty\n");
+  if (ssh_channel_request_pty(channel) != SSH_OK) {
+    fprintf(stderr, "PTY request failed: %s\n", ssh_get_error(session));
     ssh_channel_close(channel);
     ssh_channel_free(channel);
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return 1;
   }
-  
+
+  if (ssh_channel_request_shell(channel) != SSH_OK) {
+    fprintf(stderr, "Shell request failed: %s\n", ssh_get_error(session));
+    ssh_channel_close(channel);
+    ssh_channel_free(channel);
+    ssh_disconnect(session);
+    ssh_free(session);
+    return 1;
+  }
+ 
   FILE *fp = fopen(argv[4], "r");
   if (!fp) {
     perror("Error opening command file");

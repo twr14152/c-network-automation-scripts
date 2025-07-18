@@ -15,7 +15,7 @@ int main(int argc, char * argv[]) {
   session = ssh_new();
   if (session == NULL) {
     fprintf(stderr, "Error creating SSH session\n");
-    exit(EXIT_FAILURE);
+    return 1;;
   }
 
   // Set SSH options
@@ -29,7 +29,7 @@ int main(int argc, char * argv[]) {
   if (rc != SSH_OK) {
     fprintf(stderr, "Error connecting to SSH server: %s\n", ssh_get_error(session));
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return 1;;
   }
 
   // Authenticate with password
@@ -38,7 +38,7 @@ int main(int argc, char * argv[]) {
     fprintf(stderr, "Error authenticating with password: %s\n", ssh_get_error(session));
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return 1;;
   }
 
   ssh_channel channel;
@@ -47,7 +47,7 @@ int main(int argc, char * argv[]) {
     fprintf(stderr, "Error creating SSH channel\n");
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return 1;
   }
 
   rc = ssh_channel_open_session(channel);
@@ -56,7 +56,7 @@ int main(int argc, char * argv[]) {
     ssh_channel_free(channel);
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return 1;;
   }
 
   if (ssh_channel_request_pty(channel) != SSH_OK) {
@@ -77,7 +77,7 @@ int main(int argc, char * argv[]) {
     return 1;
   }
  
-  FILE *fp = fopen(argv[4], "r");
+  FILE *fp = fopen(argv[4], "r"); //filename
   if (!fp) {
     perror("Error opening command file");
     return 1;

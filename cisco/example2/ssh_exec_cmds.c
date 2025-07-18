@@ -8,6 +8,12 @@
 
 int main(int argc, char **argv)
 {
+  //Organize variable 
+  const char *host = argv[1];
+  const char *user = argv[2];
+  const char *password = argv[3];
+  const char *file = argv[4];
+
   // Initialize SSH variables
   ssh_session session;
   int rc;
@@ -23,8 +29,8 @@ int main(int argc, char **argv)
   //Uncomment to debug
   //int verbosity = SSH_LOG_PROTOCOL;
   //ssh_options_set(session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity); 
-  ssh_options_set(session, SSH_OPTIONS_HOST, argv[1]);
-  ssh_options_set(session, SSH_OPTIONS_USER, argv[2]); // or argv[2]
+  ssh_options_set(session, SSH_OPTIONS_HOST, host); 
+  ssh_options_set(session, SSH_OPTIONS_USER, user); 
 
   // Connect to SSH server
   rc = ssh_connect(session);
@@ -35,7 +41,7 @@ int main(int argc, char **argv)
   }
 
   // Authenticate with password
-  rc = ssh_userauth_password(session, NULL, argv[3]); // or argv[3]
+  rc = ssh_userauth_password(session, NULL, password); 
   if (rc != SSH_AUTH_SUCCESS) {
     fprintf(stderr, "Error authenticating with password: %s\n", ssh_get_error(session));
     ssh_disconnect(session);
@@ -64,7 +70,7 @@ int main(int argc, char **argv)
 
   char commands[MAX_CMDS];
   char line[MAX_LINE];
-  FILE * fp = fopen(argv[4], "r");
+  FILE * fp = fopen(file, "r"); 
   if (!fp) {
     printf("Error openning file.....\n");
     return EXIT_FAILURE;

@@ -53,7 +53,6 @@ int main(int argc, char **argv)
     return EXIT_FAILURE;
   }
 
-  // Execute command
   rc = ssh_channel_open_session(channel);
   if (rc != SSH_OK) {
     fprintf(stderr, "Error opening SSH channel: %s\n", ssh_get_error(session));
@@ -80,7 +79,7 @@ int main(int argc, char **argv)
   //printf("%s", commands); //used to debug
   fclose(fp);
 
-  //This is where commands get executed
+  //This is where commands get applied
   rc = ssh_channel_request_exec(channel, commands);
   if (rc != SSH_OK) {
     fprintf(stderr, "Error executing command: %s\n", ssh_get_error(session));

@@ -16,7 +16,7 @@ int main(int argc, char **argv)
   session = ssh_new();
   if (session == NULL) {
     fprintf(stderr, "Error creating SSH session\n");
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;;
   }
 
   // Set SSH options
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
   if (rc != SSH_OK) {
     fprintf(stderr, "Error connecting to SSH server: %s\n", ssh_get_error(session));
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;;
   }
 
   // Authenticate with password
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     fprintf(stderr, "Error authenticating with password: %s\n", ssh_get_error(session));
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
 
   // Open channel for executing command
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     fprintf(stderr, "Error creating SSH channel\n");
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
 
   // Execute command
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     ssh_channel_free(channel);
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
 
   char commands[MAX_CMDS];
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
   FILE * fp = fopen(argv[4], "r");
   if (!fp) {
     printf("Error openning file.....\n");
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
   
   while (fgets(line, sizeof(line), fp) != NULL) {
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
     ssh_channel_free(channel);
     ssh_disconnect(session);
     ssh_free(session);
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
 
   // Read command output

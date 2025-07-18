@@ -230,16 +230,6 @@ int main(int argc , char *argv[])
 	    ssh_free(session);
 	    exit(EXIT_FAILURE);
     }
-
-    // Execute command
-    rc = ssh_channel_open_session(channel);
-    if (rc != SSH_OK) {
-	    fprintf(stderr, "Error opening SSH channel: %s\n", ssh_get_error(session));
-	    ssh_channel_free(channel);
-	    ssh_disconnect(session);
-	    ssh_free(session);
-	    exit(EXIT_FAILURE);
-    }
     // Open File to get commands
     char commands[MAX_CMDS];
     char line[MAX_LINE]; 

@@ -69,7 +69,7 @@ int main(int argc, char * argv[]) {
   FILE * fp = fopen(argv[4], "r");
   if (!fp) {
     printf("Error openning file.....\n");
-    return 1;
+    exit(EXIT_FAILURE);
   }
   while (fgets(line, sizeof(line), fp) != NULL) {
     line[strcspn(line, "\r\n")] = 0;

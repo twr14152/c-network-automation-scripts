@@ -5,8 +5,6 @@
 
 #define MAX_LINE 1024
 
-int verbosity = SSH_LOG_PROTOCOL;
-
 int main(int argc, char * argv[]) {
 
   // Initialize SSH variables
@@ -21,6 +19,7 @@ int main(int argc, char * argv[]) {
   }
 
   // Set SSH options
+  //int verbosity = SSH_LOG_PROTOCOL;
   //ssh_options_set(session, SSH_OPTIONS_LOG_VERBOSITY, & verbosity); //Turn on for debugging
   ssh_options_set(session, SSH_OPTIONS_HOST, argv[1]); // hostname or ip
   ssh_options_set(session, SSH_OPTIONS_USER, argv[2]); // username

@@ -13,7 +13,7 @@ int main(int argc, char **argv)
     ssh_session session = ssh_new();
     if (session == NULL) {
         fprintf(stderr, "Failed to create SSH session\n");
-        return 1;
+        exit(EXIT_FAILURE);
     }
     //Uncomment for debugging
     //int verbosity = SSH_LOG_PROTOCOL;
@@ -24,14 +24,14 @@ int main(int argc, char **argv)
     if (ssh_connect(session) != SSH_OK) {
         fprintf(stderr, "Connection failed: %s\n", ssh_get_error(session));
         ssh_free(session);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     if (ssh_userauth_password(session, NULL, password) != SSH_AUTH_SUCCESS) {
         fprintf(stderr, "Auth failed: %s\n", ssh_get_error(session));
         ssh_disconnect(session);
         ssh_free(session);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     // Open a new channel
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "Channel creation failed\n");
         ssh_disconnect(session);
         ssh_free(session);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     if (ssh_channel_open_session(channel) != SSH_OK) {
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
         ssh_channel_free(channel);
         ssh_disconnect(session);
         ssh_free(session);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     if (ssh_channel_request_pty(channel) != SSH_OK) {
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
         ssh_channel_free(channel);
         ssh_disconnect(session);
         ssh_free(session);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     if (ssh_channel_request_shell(channel) != SSH_OK) {
@@ -66,13 +66,13 @@ int main(int argc, char **argv)
         ssh_channel_free(channel);
         ssh_disconnect(session);
         ssh_free(session);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     FILE *fp = fopen(file, "r");
     if (!fp) {
         perror("Error opening command file");
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     char line[1024];
@@ -104,5 +104,5 @@ int main(int argc, char **argv)
     ssh_disconnect(session);
     ssh_free(session);
     
-    return 0;
+    return EXIT_SUCCESS;;
 }

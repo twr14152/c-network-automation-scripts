@@ -1,5 +1,6 @@
 # Network Scripts written in C to configure and operate network devices
-
+### 07/18/2025
+- This sure eats up a lot of time
 ### 07/14/2025
 - I ended up breaking up the config and exec commands functions into seperate scripts
 - The logic seemed cleaner as interactive shell seem appropriate for config functions more than exec commands

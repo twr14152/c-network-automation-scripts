@@ -172,7 +172,7 @@ int display_banner(ssh_session session)
 }
 
 
-int main(int argc , char *argv[])
+int main(int argc , char **argv)
 {
     printf("You are running c version %ld\n", __STDC_VERSION__);
     // Initialize SSH variables
@@ -183,7 +183,7 @@ int main(int argc , char *argv[])
     session = ssh_new();
     if (session == NULL) {
         fprintf(stderr, "Error creating SSH session\n");
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     // Set SSH options
@@ -197,7 +197,7 @@ int main(int argc , char *argv[])
     if (rc != SSH_OK) {
         fprintf(stderr, "Error connecting to SSH server: %s\n", ssh_get_error(session));
         ssh_free(session);
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     // Authenticate
@@ -208,7 +208,7 @@ int main(int argc , char *argv[])
         fprintf(stderr, "Error authenticating: %s\n", ssh_get_error(session));
         ssh_disconnect(session);
         ssh_free(session);
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     // Open channel for executing command
@@ -218,7 +218,7 @@ int main(int argc , char *argv[])
         fprintf(stderr, "Error creating SSH channel\n");
         ssh_disconnect(session);
         ssh_free(session);
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
     rc = ssh_channel_open_session(channel);
     if (rc != SSH_OK) {
@@ -226,7 +226,7 @@ int main(int argc , char *argv[])
 	    ssh_channel_free(channel);
 	    ssh_disconnect(session);
 	    ssh_free(session);
-	    exit(EXIT_FAILURE);
+	    return EXIT_FAILURE;
     }
     // Open File to get commands
     char commands[MAX_CMDS];
@@ -235,7 +235,7 @@ int main(int argc , char *argv[])
     if (!fp) 
     {
 	    printf("Error openning file.....\n");
-	    return 1;
+	    return EXIT_FAILURE;
     }
     while (fgets(line, sizeof(line), fp) != NULL)
     {
@@ -254,7 +254,7 @@ int main(int argc , char *argv[])
         ssh_channel_free(channel);
         ssh_disconnect(session);
         ssh_free(session);
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
 
@@ -273,5 +273,5 @@ int main(int argc , char *argv[])
     ssh_disconnect(session);
     ssh_free(session);
     printf("\n\n");
-    return 0;
+    return EXIT_SUCCESS;
 }

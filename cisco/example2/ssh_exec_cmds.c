@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv)
 {
-  //Organize variable 
+  // Map variables to argv positions 
   const char *host = argv[1];
   const char *user = argv[2];
   const char *password = argv[3];

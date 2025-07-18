@@ -8,8 +8,6 @@ int authenticate_pubkey(ssh_session session);
 int authenticate_kbdint(ssh_session session);
 int authenticate_password(ssh_session session);
 
-int verbosity = SSH_LOG_PROTOCOL;
-
 int test_several_auth_methods(ssh_session session)
 {
   int method, rc;
@@ -185,6 +183,7 @@ int main(int argc , char *argv[])
     }
 
     // Set SSH options
+    //int verbosity = SSH_LOG_PROTOCOL;
     //ssh_options_set(session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity); //un-comment to debug auth
     ssh_options_set(session, SSH_OPTIONS_HOST, argv[1]);
     ssh_options_set(session, SSH_OPTIONS_USER, argv[2]);

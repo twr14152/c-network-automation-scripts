@@ -65,12 +65,12 @@ int main(int argc, char **argv)
 
   char commands[MAX_CMDS];
   char line[MAX_LINE];
-
   FILE * fp = fopen(argv[4], "r");
   if (!fp) {
     printf("Error openning file.....\n");
     exit(EXIT_FAILURE);
   }
+  
   while (fgets(line, sizeof(line), fp) != NULL) {
     line[strcspn(line, "\r\n")] = 0;
     if (strlen(line) == 0) continue;
@@ -107,5 +107,5 @@ int main(int argc, char **argv)
   ssh_disconnect(session);
   ssh_free(session);
   printf("\n\n");
-  return 0;
+  return EXIT_SUCCESS;
 }

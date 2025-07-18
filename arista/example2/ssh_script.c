@@ -174,7 +174,12 @@ int display_banner(ssh_session session)
 
 int main(int argc , char **argv)
 {
-    printf("You are running c version %ld\n", __STDC_VERSION__);
+	// Map variables to argv positions
+    const char *host = argv[1];
+    const char *user = argv[2];
+    const char *file = argv[3];
+	
+	printf("You are running c version %ld\n", __STDC_VERSION__);
     // Initialize SSH variables
     ssh_session session;
     int rc;
@@ -189,8 +194,8 @@ int main(int argc , char **argv)
     // Set SSH options
     //int verbosity = SSH_LOG_PROTOCOL;
     //ssh_options_set(session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity); //un-comment to debug auth
-    ssh_options_set(session, SSH_OPTIONS_HOST, argv[1]);
-    ssh_options_set(session, SSH_OPTIONS_USER, argv[2]);
+    ssh_options_set(session, SSH_OPTIONS_HOST, host);
+    ssh_options_set(session, SSH_OPTIONS_USER, user);
 
   // Connect to SSH server
     rc = ssh_connect(session);
@@ -231,7 +236,7 @@ int main(int argc , char **argv)
     // Open File to get commands
     char commands[MAX_CMDS];
     char line[MAX_LINE]; 
-    FILE *fp = fopen(argv[3], "r");
+    FILE *fp = fopen(file, "r");
     if (!fp) 
     {
 	    printf("Error openning file.....\n");

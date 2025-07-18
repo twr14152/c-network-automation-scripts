@@ -3,12 +3,11 @@
 #include <string.h>
 #include <libssh/libssh.h>
 
-
 #define MAX_LINE 1024
 #define MAX_CMDS 8192
 
-int main(int argc, char * argv[]) {
-
+int main(int argc, char **argv)
+{
   // Initialize SSH variables
   ssh_session session;
   int rc;
@@ -21,8 +20,9 @@ int main(int argc, char * argv[]) {
   }
 
   // Set SSH options
+  //Uncomment to debug
   //int verbosity = SSH_LOG_PROTOCOL;
-  //ssh_options_set(session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity); //un-comment to debug auth
+  //ssh_options_set(session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity); 
   ssh_options_set(session, SSH_OPTIONS_HOST, argv[1]);
   ssh_options_set(session, SSH_OPTIONS_USER, argv[2]); // or argv[2]
 
@@ -77,10 +77,10 @@ int main(int argc, char * argv[]) {
     strcat(commands, line);
     strcat(commands, " ; ");
   }
-  //printf("%s", commands);
+  //printf("%s", commands); //used to debug
   fclose(fp);
 
-  //This is where you loop through commands
+  //This is where commands get executed
   rc = ssh_channel_request_exec(channel, commands);
   if (rc != SSH_OK) {
     fprintf(stderr, "Error executing command: %s\n", ssh_get_error(session));

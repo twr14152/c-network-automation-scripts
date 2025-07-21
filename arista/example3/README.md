@@ -3,7 +3,7 @@
 - Using bash script to push out the commands to various devices.
 - Each script has a unique roll to play in rolling a change
     * pre-change-validation
-    * eployment
+    * deployment
     * post-change-validation
     * backout
 

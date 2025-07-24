@@ -2,7 +2,7 @@
 ### 07/24/2025
 - I added http client code
 - Currently its code that runs Cli commands from http using arista eAPI
-- I used libcurl library and the documentation was really good with examples
+- I used libcurl library to build it. The documentation was really good with lots examples.
   * https://curl.se/libcurl/
 - I added cjson to make the response data easier to read
 - At this point thats all of I have

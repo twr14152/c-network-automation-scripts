@@ -1,5 +1,11 @@
 # Network Scripts written in C to configure and operate network devices
-### 
+### 07/24/2025
+- I added http client code
+- Currently its code that runs Cli commands from http using arista eAPI
+- I used libcurl library and the documentation was really good with examples
+- I added cjson to make the response data easier to read
+- At this point thats all of I have
+  * arista/httpClient/http_client_run_cmds.c
 ### 07/14/2025
 - I ended up breaking up the config and exec commands functions into seperate scripts
 - The logic seemed cleaner as interactive shell seem appropriate for config functions more than exec commands

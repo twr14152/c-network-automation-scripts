@@ -1,5 +1,5 @@
 # http client
-- Used libcurl for the library as c does not have a native http library
+- Used libcurl for the library as c does not have a native http client library
 - It was surprisingly easy compared to ssh
 - No I am not used this in a rest format I'm basically still run cli commands through http
 - I know its not very devops of me but lets get things rolling and see where it can lead

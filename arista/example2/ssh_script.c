@@ -153,7 +153,7 @@ int display_banner(ssh_session session) {
   return rc;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char **argv) {
   // Map variables to argv positions
   const char * host = argv[1];
   const char * user = argv[2];

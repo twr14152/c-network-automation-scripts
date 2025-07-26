@@ -1,8 +1,9 @@
 # http client
 - Used libcurl for the library as c does not have a native http client library
 - It was surprisingly easy compared to ssh
-- No I am not used this in a rest format I'm basically still run cli commands through http
+- No I am not using this in a rest format, I'm basically running cli commands over https to the device
 - I know its not very devops of me but lets get things rolling and see where it can lead
+- I'm also ignoring cert validation
 - At this point I'll consider this a small victory
 - The first example is just issuing show commands
 - I also used cjson to pretty print the outputs

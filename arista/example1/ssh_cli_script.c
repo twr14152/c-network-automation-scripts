@@ -168,7 +168,7 @@ int display_banner(ssh_session session)
 }
 
 
-int main(int argc , char *argv[])
+int main(int argc , char **argv)
 {
     printf("You are running c version %ld\n", __STDC_VERSION__);
     // Initialize SSH variables

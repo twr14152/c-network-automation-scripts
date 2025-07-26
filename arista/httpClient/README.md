@@ -6,6 +6,7 @@
 - At this point I'll consider this a small victory
 - The first example is just issuing show commands
 - I also used cjson to pretty print the outputs
+- There is no issue running the nested configuaration commands using eAPI. Much cleaner.
 
 ### show commands
 ```

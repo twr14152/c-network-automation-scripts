@@ -1,7 +1,7 @@
 # Network Scripts written in C to configure and operate network devices
 ### 07/27/2025
-- Added the ability to use a command file to log configs and verification commands using eAPI
-- Also did away with having to put the full url with host address, just need host address
+- Added http client that will use a command file to run configuration and verification commands using eAPI
+- Also did away with having use the full url to reach the device just need to use the host address or name.
 ### 07/24/2025
 - I added http client code
 - Currently its code that runs Cli commands from http using arista eAPI

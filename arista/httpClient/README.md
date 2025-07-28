@@ -6,7 +6,7 @@
   * arg2 = username
   * arg3 = password
   * arg4 = file
-- You will notice I removed the need for the url to be included in the argument thought it would be easier to read
+- I removed the need for the url to be included in the argument thought it would be easier to read
 - commands.txt
   ```
   (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat commands.txt 

@@ -1,3 +1,144 @@
+# http client using command file
+- This client uses a seperate txt file that will hold the commands you want to run config or show commands.
+- You call the file from the commands line
+- ./http_client_using_file arg1 arg2 arg3 arg4
+  * arg1 = host
+  * arg2 = username
+  * arg3 = password
+  * arg4 = file
+- You will notice I removed the need for the url to be included in the argument thought it would be easier to read
+- commands.txt
+  ```
+  (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat commands.txt 
+enable
+configure
+interface loopback 63
+ip address 63.63.63.63/32
+description interface sixty three
+
+show running-config
+```
+- Run the script
+```
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ ./http_client_using_files 172.20.20.2 admin admin commands.txt 
+You are connecting to: https://172.20.20.2/command-api
+
+Commands from file:
+enable
+configure
+interface loopback 63
+ip address 63.63.63.63/32
+description interface sixty three
+show running-config
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+			"header":	["! device: ceos3 (cEOSLab, EOS-4.34.1F-41910228.orinocorel (engineering build))"],
+			"comments":	[],
+			"cmds":	{
+				"no aaa root":	null,
+				"username admin privilege 15 role network-admin secret sha512 $6$GnH7sZItPZVS3RHv$4i47By1Dfe0oau6g0wRHmRLGa8vRGL2OAg3pwzdoyTpHO28xxd.PCNZHXlZADg85W0GftMRF4upIF9BT59b60/":	null,
+				"management api http-commands":	{
+					"comments":	[],
+					"cmds":	{
+						"no shutdown":	null
+					}
+				},
+				"no service interface inactive port-id allocation disabled":	null,
+				"transceiver qsfp default-mode 4x10G":	null,
+				"service routing protocols model multi-agent":	null,
+				"hostname ceos3":	null,
+				"spanning-tree mode mstp":	null,
+				"system l1":	{
+					"comments":	[],
+					"cmds":	{
+						"unsupported speed action error":	null,
+						"unsupported error-correction action error":	null
+					}
+				},
+				"management api gnmi":	{
+					"comments":	[],
+					"cmds":	{
+						"transport grpc default":	{
+							"comments":	[],
+							"cmds":	{
+							}
+						}
+					}
+				},
+				"management api netconf":	{
+					"comments":	[],
+					"cmds":	{
+						"transport ssh default":	{
+							"comments":	[],
+							"cmds":	{
+							}
+						}
+					}
+				},
+				"interface Ethernet1":	{
+					"comments":	[],
+					"cmds":	{
+					}
+				},
+				"interface Ethernet2":	{
+					"comments":	[],
+					"cmds":	{
+					}
+				},
+				"interface Ethernet3":	{
+					"comments":	[],
+					"cmds":	{
+					}
+				},
+				"interface Loopback63":	{
+					"comments":	[],
+					"cmds":	{
+						"description interface sixty three":	null,
+						"ip address 63.63.63.63/32":	null
+					}
+				},
+				"interface Management0":	{
+					"comments":	[],
+					"cmds":	{
+						"ip address 172.20.20.2/24":	null,
+						"ipv6 address 3fff:172:20:20::2/64":	null
+					}
+				},
+				"no ip routing":	null,
+				"ip route 0.0.0.0/0 172.20.20.1":	null,
+				"ipv6 route ::/0 3fff:172:20:20::1":	null,
+				"router multicast":	{
+					"comments":	[],
+					"cmds":	{
+						"ipv4":	{
+							"comments":	[],
+							"cmds":	{
+								"software-forwarding kernel":	null
+							}
+						},
+						"ipv6":	{
+							"comments":	[],
+							"cmds":	{
+								"software-forwarding kernel":	null
+							}
+						}
+					}
+				}
+			}
+		}]
+}
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
+```
+
+
 # http client
 - Used libcurl for the library as c does not have a native http client library
 - It was surprisingly easy compared to ssh

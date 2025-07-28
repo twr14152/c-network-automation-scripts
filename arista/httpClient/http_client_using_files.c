@@ -91,8 +91,7 @@ int main(int argc, char **argv) {
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_URL, url);
         curl_easy_setopt(curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        //curl_easy_setopt(curl, CURLOPT_USERPWD, "admin:admin");
-	curl_easy_setopt(curl, CURLOPT_USERPWD, login_creds);
+        curl_easy_setopt(curl, CURLOPT_USERPWD, login_creds);
         curl_easy_setopt(curl, CURLOPT_POST, 1L);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
         headers = curl_slist_append(headers, "Content-Type: application/json");

@@ -8,8 +8,8 @@
   * arg4 = file
 - I removed the need for the url to be included in the argument thought it would be easier to read
 - commands.txt
-  ```
-  (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat commands.txt 
+```
+(myenv_py3.11)toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat commands.txt 
 enable
 configure
 interface loopback 63

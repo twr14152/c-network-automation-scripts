@@ -1,4 +1,8 @@
 # Network Scripts written in C to configure and operate network devices
+### 07/28/2025
+- Putting http_client_using_files.c to use in a shell script.
+- Enable restconf with self signed cert
+  * run_http_cmds.sh
 ### 07/27/2025
 - Added http client that will use a command file to run configuration and verification commands using eAPI
 - Also did away with having use the full url to reach the device just need to use the host address or name.

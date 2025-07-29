@@ -1,7 +1,7 @@
 # Network Scripts written in C to configure and operate network devices
 ### 07/28/2025
 - Putting http_client_using_files.c to use in a shell script.
-- Enable restconf with self signed cert.
+- Enable restconf with self signed cert. (While is shows restconf enabled the yang models are not present, restconf data path non-existent.) Possible user error. Code did deploy properly, the feature just is not working.
 - The self-signed-cert was manually done per device as it was first time setting it up and it was giving me issues with common name when scripted. I didnt care enough to mess with it further,so i just manually did that part. I hate dealing with certs. I think they are the worst part of networking.
 - Finally save configs to memory on each device
   * arista/httpClient/run_http_cmds.sh

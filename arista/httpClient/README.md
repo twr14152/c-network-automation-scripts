@@ -1,4 +1,184 @@
 # http client using command file
+
+- Using shell script to bundle commands to push out to multiple devices
+- The script will push config then validate
+- The process of generating self-signed-certificates was manual per device
+
+### config file
+```
+ (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat cmds1.txt 
+enable
+configure
+management security
+ ssl profile self-signed-certs
+ certificate self-signed.crt key self-signed.key
+
+management api http-commands
+ protocol https ssl profile self-signed-certs
+
+management api restconf
+transport https default
+ssl profile self-signed-certs
+
+(myenv_py3.11) 
+```
+### validation commands
+```
+toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat cmds2.txt 
+enable
+show management api restconf
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
+```
+### run the shell script
+```
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ ./run_http_cmds.sh 
+You are connecting to: https://clab-lab3-ceos1/command-api
+
+Commands from file:
+enable
+configure
+management security
+ ssl profile self-signed-certs
+ certificate self-signed.crt key self-signed.key
+management api http-commands
+ protocol https ssl profile self-signed-certs
+management api restconf
+transport https default
+ssl profile self-signed-certs
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}]
+}
+You are connecting to: https://clab-lab3-ceos2/command-api
+
+Commands from file:
+enable
+configure
+management security
+ ssl profile self-signed-certs
+ certificate self-signed.crt key self-signed.key
+management api http-commands
+ protocol https ssl profile self-signed-certs
+management api restconf
+transport https default
+ssl profile self-signed-certs
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}]
+}
+You are connecting to: https://clab-lab3-ceos3/command-api
+
+Commands from file:
+enable
+configure
+management security
+ ssl profile self-signed-certs
+ certificate self-signed.crt key self-signed.key
+management api http-commands
+ protocol https ssl profile self-signed-certs
+management api restconf
+transport https default
+ssl profile self-signed-certs
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}, {
+		}]
+}
+You are connecting to: https://clab-lab3-ceos1/command-api
+
+Commands from file:
+enable
+show management api restconf
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+			"enabled":	true,
+			"port":	6020,
+			"vrfName":	"default",
+			"error":	"",
+			"sslProfile":	"self-signed-certs",
+			"qosDscp":	0
+		}]
+}
+You are connecting to: https://clab-lab3-ceos2/command-api
+
+Commands from file:
+enable
+show management api restconf
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+			"enabled":	true,
+			"port":	6020,
+			"vrfName":	"default",
+			"error":	"",
+			"sslProfile":	"self-signed-certs",
+			"qosDscp":	0
+		}]
+}
+You are connecting to: https://clab-lab3-ceos3/command-api
+
+Commands from file:
+enable
+show management api restconf
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+			"enabled":	true,
+			"port":	6020,
+			"vrfName":	"default",
+			"error":	"",
+			"sslProfile":	"self-signed-certs",
+			"qosDscp":	0
+		}]
+}
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
+
+```
 - This client uses a seperate txt file that will hold the commands you want to run config or show commands.
 - You call the file from the commands line
 - ./http_client_using_file arg1 arg2 arg3 arg4
@@ -7,7 +187,7 @@
   * arg3 = password
   * arg4 = file
 - I removed the need for the url to be included in the argument thought it would be easier to read
-- commands.txt
+### commands.txt
 ```
 (myenv_py3.11)toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat commands.txt 
 enable
@@ -18,7 +198,7 @@ description interface sixty three
 
 show running-config
 ```
-- Run the script
+### Run the script
 ```
 (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ ./http_client_using_files 172.20.20.2 admin admin commands.txt 
 You are connecting to: https://172.20.20.2/command-api

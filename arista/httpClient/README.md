@@ -2,7 +2,8 @@
 ### 07/28/2025
 - Using shell script to bundle http_client scripts to push out to multiple devices
 - The script will push config then validate
-- The process of generating self-signed-certificates was manual per device
+- The process of generating self-signed-certificates was manually done per device.
+- Tried to automate but it was giving me fits on the common name so I'll revisit another time.
 
 ### config file - cmds1.txt
 ```

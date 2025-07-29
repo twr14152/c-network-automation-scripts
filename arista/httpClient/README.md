@@ -1,10 +1,10 @@
 # http client using command file
-
-- Using shell script to bundle commands to push out to multiple devices
+### 07/28/2025
+- Using shell script to bundle http_client scripts to push out to multiple devices
 - The script will push config then validate
 - The process of generating self-signed-certificates was manual per device
 
-### config file
+### config file - cmds1.txt
 ```
  (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat cmds1.txt 
 enable
@@ -22,14 +22,14 @@ ssl profile self-signed-certs
 
 (myenv_py3.11) 
 ```
-### validation commands
+### validation commands - cmds2.txt
 ```
 toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat cmds2.txt 
 enable
 show management api restconf
 (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
 ```
-### run the shell script
+### run the shell script - run_http_cmds.sh
 ```
 (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ ./run_http_cmds.sh 
 You are connecting to: https://clab-lab3-ceos1/command-api
@@ -179,6 +179,8 @@ Pretty JSON:
 (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
 
 ```
+### 07/27/2025 - http_client_using_file.c
+
 - This client uses a seperate txt file that will hold the commands you want to run config or show commands.
 - You call the file from the commands line
 - ./http_client_using_file arg1 arg2 arg3 arg4

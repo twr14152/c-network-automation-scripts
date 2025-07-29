@@ -4,7 +4,7 @@
 - The script will push config then validate
 - The process of generating self-signed-certificates was manually done per device.
 - Tried to automate but it was giving me fits on the common name so I'll revisit another time.
-- Finally save config to memory
+- Finally save configs to memory
 
 ### config file - cmds1.txt
 ```

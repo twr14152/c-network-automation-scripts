@@ -3,7 +3,9 @@
 - Putting http_client_using_files.c to use in a shell script.
 - Enable restconf with self signed cert.
 - The self-signed-cert was manually done per device as it was first time setting it up and it was giving me issues with common name when scripted. I didnt care enough to mess with it further,so i just manually did that part. I hate dealing with certs. I think they are the worst part of networking.
+- Finally save configs to memory on each device
   * run_http_cmds.sh
+  * wr_mem.sh
 ### 07/27/2025
 - Added http client that will use a command file to run configuration and verification commands using eAPI
 - Also did away with having use the full url to reach the device just need to use the host address or name.

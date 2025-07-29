@@ -4,6 +4,7 @@
 - The script will push config then validate
 - The process of generating self-signed-certificates was manually done per device.
 - Tried to automate but it was giving me fits on the common name so I'll revisit another time.
+- Finally save config to memory
 
 ### config file - cmds1.txt
 ```
@@ -180,6 +181,60 @@ Pretty JSON:
 (myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
 
 ```
+### save config to memory commands - cmds3.txt 
+```
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ cat cmds3.txt 
+enable
+write memory
+```
+### Run Script - wr_mem.sh
+```
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ ./wr_mem.sh 
+You are connecting to: https://clab-lab3-ceos1/command-api
+
+Commands from file:
+enable
+write memory
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+			"messages":	["Copy completed successfully."]
+		}]
+}
+You are connecting to: https://clab-lab3-ceos2/command-api
+
+Commands from file:
+enable
+write memory
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+			"messages":	["Copy completed successfully."]
+		}]
+}
+You are connecting to: https://clab-lab3-ceos3/command-api
+
+Commands from file:
+enable
+write memory
+Pretty JSON:
+{
+	"jsonrpc":	"2.0",
+	"id":	"1",
+	"result":	[{
+		}, {
+			"messages":	["Copy completed successfully."]
+		}]
+}
+(myenv_py3.11) toddriemenschneider@clab:~/clabs/labs/ceos_labs/lab3/scripts/c_folder/arista/httpClient$ 
+```
+
 ### 07/27/2025 - http_client_using_file.c
 
 - This client uses a seperate txt file that will hold the commands you want to run config or show commands.

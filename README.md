@@ -2,7 +2,7 @@
 ### 08/18/2025
 - I posted this repo on Reddit to see if there might be any interest in the topic of using c to try and do some automation. Got some good feedback and I would say there was not a real enthusiasm for the topic.
 - One individual pointed out that the ssh command itself could basically do what one of my early cli ssh scripts could do. He was referring to ssh username@host "cmd1; cmd2". I thought for a moment wow why didn't I think of that?
-- Then it occured to me I wasn't trying to solve the problem of ssh'ing commands to a device. I was trying to use c and the libssh library to write scripts that could run multiple commands on multiple devices. So the goal was a little different.
+- Then it occured to me I wasn't trying to solve the problem of ssh'ing commands to a single device. I was trying to use c and the libssh library to write scripts that could run multiple commands on multiple devices. So the goal was a little different.
 - That said it got me thinking why not simplify the ssh script to call the ssh command directly to run some commands on a couple of devices. Basically use the script as a wrapper on the ssh command to add to its capabilities. For an individual device the script vs the command itself doesn't make since, but when you start adding hosts to the script thats where you find its value.
 - arista/example4/c_ssh.c
 ### 07/28/2025

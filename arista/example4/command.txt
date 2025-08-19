@@ -1,0 +1,15 @@
+enable
+show ip int brief
+
+config 
+interface loopback1
+description test_script
+ip address 1.1.1.1/32
+
+show run interface loopback1
+show ip interface brief
+
+config t
+no interface loopback 1
+show ip interface brief
+

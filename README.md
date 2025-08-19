@@ -1,9 +1,9 @@
 # Network Scripts written in C to configure and operate network devices
 ### 08/18/2025
 - I asked for feedback on this repo on Reddit to see if there might be any interest in the topic of using c for automation. Got some good feedback and I would say there was no real enthusiasm for the topic. 
-- An individual pointed out that the ssh command itself could basically do what one of my cli ssh scripts could do. He was referring ssh command....ssh username@host "cmd1; cmd2". I thought for a moment wow a single command can do that. What the hell am I doing?
-- Then it occured to me I wasn't trying to solve the problem of sending commands to a single device using ssh. I was trying to use c and the libssh library together to learn how to write scripts that can do the very thing that the ssh command could do. Creating a lesser brand of the same product. Sure but it was a learning exercise to see how things work under the hood. That said....... 
-- It got me thinking why not simplify the ssh script to call the ssh command directly to run some commands on a some devices. Why not use whats already available?? Basically use the script as a wrapper on the ssh command augment its capabilities. For an individual device the script vs the command itself doesn't make since, but when you start adding hosts to the script thats where you find its value.
+- An individual pointed out that the ssh command itself could basically do what one of my cli ssh scripts could do. He was referring this 'ssh username@host "cmd1; cmd2"'. I thought for a moment wow a single command can do that? Wait thats exactly what my script does....
+- Then it occured to me I wasn't trying to solve the problem of sending commands to a single device using ssh. I was trying to use c and the libssh library together to learn how to write scripts that can do the very thing that the ssh command itseld could do. Creating albeit lesser brand of the same product. But it was a learning exercise to see how things work under the hood. That said....... 
+- It got me thinking why not simplify the ssh script to call the ssh command directly to run some commands on a some devices. Why not use whats already available?? Basically use the script as a wrapper on the ssh command itself to augment its capabilities. For an individual device the script vs the command itself doesn't make since, but when you start adding hosts to the script thats where you find its value.
   * arista/example4/c_ssh.c
 ### 07/28/2025
 - Putting http_client_using_files.c to use in a shell script.

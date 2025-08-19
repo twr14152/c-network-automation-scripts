@@ -1,8 +1,8 @@
-### This script is a wrapper on top of the standard ssh command
+### Much simpler way to write a C script to manage devices using ssh
 
 - So I will say this was a hell of a lot easier than using libssh.
 - I used **stdlib.h** with **system()** which can call shell commands, and in my case ssh.
-- I did install sshpass to call the password in the script so I didnt have to keep entering it while the script was running
+- I did install sshpass to call the password in the script so I didn't have to keep entering it while the script was running.
 - This script was a good lesson in utilizing tools that are already at our disposal, its just a matter of taking advantage of them.
   
 ```

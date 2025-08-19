@@ -1,4 +1,10 @@
 # Network Scripts written in C to configure and operate network devices
+### 08/18/2025
+- I posted this repo on Reddit to see if there might be any interest in the topic of using c to try and do some automation. Got some good feedback and I would say there was not a real enthusiasm for the topic.
+- One individual pointed out that the ssh command itself could do basically what one of my early cli ssh scripts could do. Basically ssh username@host "cmd1; cmd2". I thought for a moment wow why didn't I think of that?
+- Then it occured to me I wasn't trying to solve the problem of ssh'ing commands to a router. I was trying to use c and the libssh library to write scripts that could run commands on multiple devices. So the goal was a little different.
+- That said it got me thinking why not simplify the ssh script to call or use the ssh command to run some commands on a couple of devices. Basically use the script as a wrapper on that uses the command. Individually the script vs the command itself doesn't make since,  but when you start adding hosts to the script thats where you find its value.
+- 
 ### 07/28/2025
 - Putting http_client_using_files.c to use in a shell script.
 - Enable restconf with self signed cert. (Update...While it shows restconf enabled the yang models are not present, restconf data path non-existent.) Possible user error. Code did deploy properly, the feature just is not working.

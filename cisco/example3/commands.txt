@@ -1,0 +1,14 @@
+enable
+
+show ip int brief
+
+config t
+interface loopback 22
+description c is better than python
+ip address 22.22.22.22 255.255.255.255
+exit
+exit
+show run interface loopback 22
+show ip int brief
+
+

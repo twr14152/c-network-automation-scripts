@@ -1,4 +1,4 @@
-### This script is a wrapper for the standard ssh cli augmenting its capabilities
+### This script is a wrapper for the standard ssh cli 
 
 - So I will say this was a hell of a lot easier than using libssh. 
 - I did install sshpass to call the password in the script so I didnt have to keep entering it while the script was running

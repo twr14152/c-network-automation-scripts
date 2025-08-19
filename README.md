@@ -2,9 +2,9 @@
 ### 08/18/2025
 - I asked for feedback on this repo on Reddit to see if there might be any interest in the topic of using c for automation. Got some good feedback, and I would say there not much enthusiam for this topic. (Shame... Oh well :)) 
 - An individual pointed out that the ssh command itself could basically do what one of my cli ssh scripts could do. He was referring this command 'ssh username@host "cmd1"'. And he was right. I thought for a moment wow a single command can do that? Wait that is exactly what my script does. Is this a good thing or a bad thing?..Then I thought well my script was written with libssh, so I'm guessing its based off similiar code and standards that the command was based off. So I guess its a good thing???
-- Then it occured to me. I wasn't trying to rebuild ssh. I was trying to use c and a library (libssh) together to learn how to write useful script to manage network devices. This was learning exercise to see how things work. That said....... 
-- It got me thinking why not simplify the ssh script to utilize the ssh command to run commands on multiple devices. Use whats already available... So how can I do that. The answer is using the stdlib.h it has a function called system(). This command allows you to call shell commands. With that I was able to write a script that utilizes the ssh command and I can augment its capabilities by incorporating loops from c to run through multiple devices.
--  For an individual device the script vs the command doesn't make since, but when you start adding hosts to the script thats where you find its value.
+- Then it occured to me. I wasn't trying to rebuild the linux ssh. I was trying to use c and a library (libssh) together to learn how to write useful script to manage network devices. This was learning exercise to see how things work. That said....... 
+- It got me thinking why not simplify the ssh script to just utilize the existing linux ssh command to run commands on multiple devices. So how can I do that. The answer is using the **stdlib.h** it has a function called **system()**. This function allows you to call linux shell commands. The script is far smaller and way easier to write and modify.
+-  I need give gentleman who brought this up on reddit his due he was correct in that the linux shell command is very capabile. Without investigating it I wouldnt know how capabable. 
   * arista/example4/c_ssh.c
 ### 07/28/2025
 - Putting http_client_using_files.c to use in a shell script.

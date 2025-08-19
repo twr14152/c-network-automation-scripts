@@ -1,4 +1,5 @@
-### Using C to call ssh then using a loop to run commands on multiple devices
+### This script was written to loop through multiple devices and run multiple commands using standard ssh command line syntaz
+
 - So I will say this was a hell of a lot easier than using libssh. 
 - I did install sshpass to call the password in the script so I didnt have to keep entering it while the script was running
 - This script was a good lesson in utilizing tools that are already at our disposal its just a matter of taking advantage of them.

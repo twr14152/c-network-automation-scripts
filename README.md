@@ -7,6 +7,7 @@
 -  I need give gentleman who brought this up on reddit his due he was correct in that the linux shell command is very capabile. Without investigating it I wouldnt know how capabable.
 -  I do need to preface this, I used C because thats what this repo is about, but you can do the same thing with python, bash, Go...etc... I'm guessing it would be even easier, but again thats not what this is about....
   * arista/example4/c_ssh.c
+  * cisco/example3/c_ssh.c
 ### 07/28/2025
 - Putting http_client_using_files.c to use in a shell script.
 - Enable restconf with self signed cert. (Update...While it shows restconf enabled the yang models are not present, restconf data path non-existent.) Possible user error. Code did deploy properly, the feature just is not working.

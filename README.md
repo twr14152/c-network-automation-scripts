@@ -4,7 +4,7 @@
 - An individual pointed out that the ssh command itself could basically do what one of my cli ssh scripts could do. He was referring this command 'ssh username@host "cmd1"'. And he was right. I thought for a moment wow a single command can do that? What the hell am I doing..
 - Then it occured to me. I wasn't trying to rebuild the linux ssh. I was just trying to use c and a library (libssh) together to learn how to write useful script to manage network devices. Sure it was a long and windy road but this was learning exercise and it worked. So while a little embarrassed that I didnt know the single ssh command could do that much.  I don't regret the effort put in at all. The scripts did work.  
 - But it did get me thinking, why not simplify the ssh script to just utilize the existing linux ssh command to run commands on multiple devices. So how can I do that? The answer is using the **stdlib.h** it has a function called **system()**. This function allows you to call linux shell commands. The script is far smaller and way easier to write and modify.
--  I need give gentleman who brought this up on reddit his due he was correct in that the linux shell command is very capabile. Without investigating it I wouldnt know how capabable.
+-  I need give gentleman who brought this up on reddit his due he was correct in that the linux shell command is very capable. Without investigating it I wouldnt know how capabable.
 -  I do need to preface this, I used C because thats what this repo is about, but you can do the same thing with python, bash, Go...etc... I'm guessing it would be even easier, but again thats not what this is about....
   * arista/example4/c_ssh.c
   * cisco/example3/c_ssh.c
